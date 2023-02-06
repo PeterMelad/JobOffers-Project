@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color :#764545">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Index" class="navbar-brand" style="padding-top: 10px" >
+                    <img src="~/images/227936.jpg" alt="#" style="width:50px; height:30px; display:inline; " />
+                    Wuzzaf
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Jobs", "Index", "Jobs")</li>
+                    
+                    <li>
+                        @*<a href="#">*@
+                            <input type="text" name="Search" id="Search" placeholder="Search here.." 
+                                   style="margin:10px" />
+                        @*</a>*@
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" >
+        <div style="min-height:550px">  @RenderBody()</div>
+        <hr />
+        <footer style="background-color: aquamarine">
+            <hr style="width:3px" />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Welcome to You :) </p>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                    </svg>Facebook
+                                </a>
+                            </li>
+                            <li><a href="https://www.Google.com" target="_blank">Google</a></li>
+                            <li><a href="https://www.linkedin.com" target="_blank">Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+<script>
+    $(document).ready(function () {
+        $("#Search").keypress(function (event) {        // if he pressed enter
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {          // '13' da el code bta3 el 'enter'
+                window.location.href = "/Home/searchfield?search=" + $("#Search").val();
+            }
+        })
+    });
+</script>
+</body>
+</html>

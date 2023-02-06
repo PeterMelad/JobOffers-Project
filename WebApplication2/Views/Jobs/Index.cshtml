@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication2.Models.Job>
+
+@{
+    ViewBag.Title = "Jobs";
+}
+
+<h2>Jobs</h2>
+@if (TempData["result"] != null)
+{
+    <h3 style="color:red; text-align:center">@TempData["result"]</h3>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover table-striped ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(Model=>item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobContent )
+        </td>
+        <td>
+            <img src="~/Uploads/@item.JobImage" width="50" height="30" alt="Not Found" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

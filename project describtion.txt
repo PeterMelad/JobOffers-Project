@@ -1,0 +1,12 @@
+el project m3mol b mvc framework
+el classes ele mawgoda : category - job - applyforjob - applicationuser 
+relations :
+el category feeh one or more jobs .. el job tb3 category wa7da
+el user momken y apply fe kza job ,w el job momken y2dm 3leh kza user ,3l4an kda 3mlt class 'applyforjob'
+el user momken ykon publisher or applier , f kda el job feh one-to-one m3 applicationuser (3l4an feh column m7dd feh el user da publisher wla applier)
+
+project describtion:
+el project da feh el users momken ykono publishers (bynzlo jobs) or searcher/applier (by2dmo 3la el jobs).. el project 3obara 3n mgmo3a mn el categories (accounting ,programming,..) w gwa kl category fe el jobs bta3thom
+momken el user (applier) y2dm fe kza job (bs byy apply mra wa7da 3la el job) .. el publisher byy publish jobs ..momken y4of el jobs ele 3ml leha publish w momken y4of el users ele 2dmo fe el kl job 
+
+- kl 7aga 48ala fe el project

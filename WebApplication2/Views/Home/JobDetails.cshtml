@@ -1,0 +1,51 @@
+﻿@model WebApplication2.Models.ApplyForJob
+@{
+    ViewBag.Title = "JobDetails";
+}
+
+<h2>Job Details</h2>
+
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Date Applied")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateTime)
+        </dd>
+        <dt>
+            @Html.Label("Message")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.message)
+
+        </dd>
+        <dt>
+            @Html.Label("Job Title")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job.JobTitle)
+        </dd>
+
+        <dt>
+            @Html.Label("Job")
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Model.job.JobImage" width="50" height="40" alt="Not Found" style="display:block"/>
+
+            @Html.DisplayFor(model => model.job.JobContent)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to job List", "GetUserjobs", new { }, new { @class = "btn btn-primary" })
+</p>

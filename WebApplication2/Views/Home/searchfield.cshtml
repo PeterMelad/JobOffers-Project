@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication2.Models.Job>
+
+@{
+    ViewBag.Title = "search Result";
+}
+
+<h2>Search Result</h2>
+
+@if (Model.Count() == 0)
+{
+    <h3>No Job Found</h3>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <h1>@Html.DisplayFor(m => item.category.CategoryName)</h1>
+
+        <div class="row">
+                     <div class="col-md-4 thumbnail">
+                         <div style="text-align:center">
+                             <img src="~/Uploads/@item.JobImage" style="width:80%; height:120px;" alt="No Image" />
+                         </div>
+                         <h3> @Html.DisplayFor(m => item.JobTitle)</h3>
+                    <h5>@Html.DisplayFor(m => item.JobContent)</h5>
+
+                    <a href="/Jobs/Details/@item.id" class="btn btn-primary">Details</a>
+
+                    @*@Html.ActionLink("Details","Details","Jobs",new { id = subitem.id }, new {@class="btn btn-default"})    da s7 brdo *@
+                </div>
+            
+        </div>
+    }
+
+}

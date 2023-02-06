@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApplication2.Models.Category>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+    <h1>@Html.DisplayFor(m => item.CategoryName)</h1>
+    <h5>@Html.DisplayFor(m => item.CategoryDescription)</h5>
+
+    <div class="row">
+    @foreach (var subitem in item.Jobs)
+    {
+    
+        <div class="col-md-4 thumbnail" style="height:250px;" >
+            <div style="text-align:center" >
+                <img src="~/Uploads/@subitem.JobImage" style="width:80%; height:120px;" alt="No Image" />
+            </div>
+            <h3> @Html.DisplayFor(m => subitem.JobTitle)</h3>
+            <h5>@Html.DisplayFor(m => subitem.JobContent)</h5>
+        
+            <a href="/Jobs/Details/@subitem.id" class="btn btn-primary">Details</a>
+
+           @*@Html.ActionLink("Details","Details","Jobs",new { id = subitem.id }, new {@class="btn btn-default"})    da s7 brdo *@ 
+        </div>
+    }
+    </div>
+}
